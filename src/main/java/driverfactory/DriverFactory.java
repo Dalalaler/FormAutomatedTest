@@ -1,7 +1,6 @@
 package driverfactory;
 
 import configreader.ConfigManager;
-import configreader.GetPropertyValues;
 import enums.DriverNames;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

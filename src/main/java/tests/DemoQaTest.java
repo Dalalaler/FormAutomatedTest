@@ -13,7 +13,7 @@ public class DemoQaTest {
     private static WebDriver webDriver;
 
     @BeforeClass
-    public static void openBrowser() throws IOException {
+    public static void openBrowser() {
         System.out.println("Starting test.");
     }
 
@@ -46,7 +46,7 @@ public class DemoQaTest {
     }
 
     @AfterClass
-    public static void closeBrowser() throws InterruptedException {
+    public static void closeBrowser() {
         webDriver.quit();
     }
 }

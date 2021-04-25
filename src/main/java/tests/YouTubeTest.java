@@ -14,7 +14,7 @@ public class YouTubeTest {
 
 
     @BeforeClass
-    public static void openBrowser() throws IOException {
+    public static void openBrowser() {
         System.out.println("Starting test.");
     }
 
