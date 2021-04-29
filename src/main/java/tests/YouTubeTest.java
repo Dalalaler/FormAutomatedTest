@@ -7,9 +7,6 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import pages.Dashboard;
-import pages.HomePage;
-import pages.LoginPage;
 import pages.YouTubePage;
 
 import java.io.IOException;
