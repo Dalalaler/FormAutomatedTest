@@ -8,7 +8,6 @@ import java.util.Properties;
 
 public class GetPropertyValues {
     private HashMap<String, String> propsResult = new HashMap<>();
-    private String result = "";
     private FileInputStream inputStream;
 
     public HashMap<String, String> getPropValues() throws IOException {
@@ -23,7 +22,7 @@ public class GetPropertyValues {
                 throw new FileNotFoundException("property file not found in the directory");
             }
 
-            propsResult.put("baseUrl", prop.getProperty("baseUrl"));
+            propsResult.put("rickrollUrl", prop.getProperty("rickrollUrl"));
             propsResult.put("demoQaUrl", prop.getProperty("demoQaUrl"));
             propsResult.put("chromeDriverWindowsLocation", prop.getProperty("chromeDriverWindowsLocation"));
             propsResult.put("edgeDriverWindowsLocation", prop.getProperty("edgeDriverWindowsLocation"));
@@ -33,6 +32,8 @@ public class GetPropertyValues {
             propsResult.put("edgeDriverProperty", prop.getProperty("edgeDriverProperty"));
             propsResult.put("firefoxDriverProperty", prop.getProperty("firefoxDriverProperty"));
             propsResult.put("operaDriverProperty", prop.getProperty("operaDriverProperty"));
+            propsResult.put("demoQaLogin", prop.getProperty("demoQaLogin"));
+            propsResult.put("demoQaPassword", prop.getProperty("demoQaPassword"));
 
         } catch (Exception e) {
             System.out.println("Exception: " + e);

@@ -10,20 +10,23 @@ import org.openqa.selenium.WebDriver;
 import pages.Dashboard;
 import pages.HomePage;
 import pages.LoginPage;
-import pages.YouTubePage;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class YouTubeTest {
+public class LoginTest {
     private static WebDriver driver;
-    private static YouTubePage youTubePage;
+    private static HomePage home;
+    private static LoginPage login;
+    private static Dashboard dashboard;
 
     @BeforeClass
     public static void openBrowser() throws IOException {
         driver = DriverFactory.getDriver(DriverNames.CHROME);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        youTubePage = new YouTubePage(driver);
+        home = new HomePage(driver);
+        login = new LoginPage(driver);
+        dashboard = new Dashboard(driver);
     }
 
     @AfterClass
@@ -31,10 +34,16 @@ public class YouTubeTest {
         driver.quit();
     }
 
-    @Test
-    public void loginTest() throws IOException, InterruptedException {
-        driver.get(ConfigManager.getInstance().getProps().get("rickrollUrl"));
-        youTubePage.clickPlay();
-    }
 
+    @Test
+    public void loginTest() throws IOException {
+        driver.get(ConfigManager.getInstance().getProps().get("demoQaUrl"));
+        home.clickLogin();
+
+        login.enterUsername(ConfigManager.getInstance().getProps().get("demoQaLogin"));
+        login.enterPassword(ConfigManager.getInstance().getProps().get("demoQaPassword"));
+        login.clickLogin();
+
+        dashboard.clickLogout();
+    }
 }
