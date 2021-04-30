@@ -9,7 +9,7 @@ public class YouTubePage extends AbstractPage {
         super(driver);
     }
 
-    By playBtn = By.xpath(".//*[@id=\"movie_player\"]/div[33]/div[2]/div[1]/button");
+    By playBtn = By.xpath(".//button[@class='ytp-play-button ytp-button']");
 
     public void clickPlay() {
         driver.findElement(playBtn).click();

@@ -10,7 +10,7 @@ public class ConfigManager {
     public static ConfigManager getInstance() throws IOException {
         if (instance == null) {
             instance = new ConfigManager();
-            GetPropertyValues properties = new GetPropertyValues();
+            PropertyReader properties = new PropertyReader();
             props = properties.getPropValues();
         }
         return instance;
@@ -18,5 +18,12 @@ public class ConfigManager {
 
     public static HashMap<String, String> getProps() {
         return props;
+    }
+
+    public static String getProperty(String propertyName) throws IOException {
+        String property = "";
+        property = ConfigManager.getInstance().getProps().get(propertyName);
+
+        return property;
     }
 }

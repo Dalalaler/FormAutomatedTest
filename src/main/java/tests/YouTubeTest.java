@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import pages.YouTubePage;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class YouTubeTest {
     private static WebDriver driver;
@@ -19,7 +18,6 @@ public class YouTubeTest {
     @BeforeClass
     public static void openBrowser() throws IOException {
         driver = DriverFactory.getDriver(DriverNames.CHROME);
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         youTubePage = new YouTubePage(driver);
     }
 
@@ -29,9 +27,8 @@ public class YouTubeTest {
     }
 
     @Test
-    public void loginTest() throws IOException, InterruptedException {
-        driver.get(ConfigManager.getInstance().getProps().get("rickrollUrl"));
+    public void rickrollTest() throws IOException {
+        driver.get(ConfigManager.getProperty("rickrollUrl"));
         youTubePage.clickPlay();
     }
-
 }

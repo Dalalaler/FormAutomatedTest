@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Properties;
 
-public class GetPropertyValues {
+public class PropertyReader {
     private HashMap<String, String> propsResult = new HashMap<>();
     private FileInputStream inputStream;
 
