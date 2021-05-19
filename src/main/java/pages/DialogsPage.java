@@ -15,8 +15,8 @@ public class DialogsPage extends AbstractPage {
     private By largeModalBtn = By.id("showLargeModal");
     private By closeSmallModal = By.id("closeSmallModal");
     private By closeLargeModal = By.id("closeLargeModal");
-    private By smallModalText = By.xpath(".//html/body/div[3]/div/div/div[2]");
-    private By largeModalText = By.xpath(".//html/body/div[3]/div/div/div[2]/p");
+    private By smallModalText = By.xpath("//div[@class=\"modal-body\"]");
+    private By largeModalText = By.xpath("//div[@class=\"modal-body\"]/p");
 
 
     public void clickSmallModal() {
@@ -35,11 +35,11 @@ public class DialogsPage extends AbstractPage {
         driver.findElement(closeLargeModal).click();
     }
 
-    public String getSmallModalText(){
+    public String getSmallModalText() {
         return driver.findElement(smallModalText).getText();
     }
 
-    public String getLargeModalText(){
+    public String getLargeModalText() {
         return driver.findElement(largeModalText).getText();
     }
 

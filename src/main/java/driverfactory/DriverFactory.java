@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import testutils.PathGetter;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -18,6 +19,7 @@ public class DriverFactory {
 
     public static WebDriver getDriver(DriverNames driverName) throws IOException {
         WebDriver webDriver;
+        String downloadPath;
 
         switch (driverName) {
             case EDGE:
@@ -30,7 +32,8 @@ public class DriverFactory {
                 break;
             case CHROME:
                 Map<String, Object> prefs = new HashMap<String, Object>();
-                prefs.put("download.default_directory", ConfigManager.getProperty("downloadPath"));
+                downloadPath = PathGetter.getAbsoluteFolderPath("downloadPath");
+                prefs.put("download.default_directory", downloadPath);
                 ChromeOptions options = new ChromeOptions();
                 options.setExperimentalOption("prefs", prefs);
                 ChromeDriver driver = new ChromeDriver(options);

@@ -3,28 +3,35 @@ package tests;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import pages.FramesPages;
 
 import java.io.IOException;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class FramesTest extends BasicTest {
+    private String frameText = "This is a sample page";
+
     @BeforeEach
     public void pagePreparation() throws IOException {
+        framesPages = new FramesPages(driver);
         framesPages.open();
-        int size = driver.findElements(By.tagName("iframe")).size();
-        System.out.println("Total Frames: " + size);
+        int framesCount = driver.findElements(By.tagName("iframe")).size();
+        assertEquals(framesCount, 2, "Number of pages is not 2");
     }
 
     @Test
     public void firstFrameTest() {
-        driver.switchTo().frame(0);
-        System.out.println("First frame text: ");
-        System.out.println(driver.findElement(By.id("sampleHeading")).getText());
+        frameTextTest(0, frameText);
     }
 
     @Test
     public void secondFrameTest() {
-        driver.switchTo().frame(1);
-        System.out.println("Second frame text: ");
-        System.out.println(driver.findElement(By.id("sampleHeading")).getText());
+        frameTextTest(0, frameText);
+    }
+
+    public void frameTextTest(int frameIndex, String expectedText) {
+        driver.switchTo().frame(frameIndex);
+        assertEquals(driver.findElement(By.id("sampleHeading")).getText(), frameText);
     }
 }

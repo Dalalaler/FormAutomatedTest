@@ -32,15 +32,27 @@ public class AlertsPage extends AbstractPage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(promtButton));
     }
 
-    public void acceptAlert() {
-        Alert simpleAlert = driver.switchTo().alert();
-        simpleAlert.accept();
+
+    public boolean acceptAlert() {
+        Alert simpleAlert;
+        try {
+            simpleAlert = driver.switchTo().alert();
+            simpleAlert.accept();
+            return true;
+        } catch (NoAlertPresentException Ex) {
+            return false;
+        }
     }
 
-    public void acceptPromtAlert(String alertText){
-        Alert promtAlert = driver.switchTo().alert();
-        promtAlert.sendKeys(alertText);
-        promtAlert.accept();
+    public boolean acceptPromtAlert(String alertText) {
+        Alert promtAlert;
+        try {
+            promtAlert = driver.switchTo().alert();
+            promtAlert.accept();
+            return true;
+        } catch (NoAlertPresentException Ex) {
+            return false;
+        }
     }
 
     @Override

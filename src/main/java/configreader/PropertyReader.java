@@ -10,12 +10,13 @@ public class PropertyReader {
     private HashMap<String, String> propsResult = new HashMap<>();
     private FileInputStream inputStream;
     private Properties prop;
+    private String configFileRelativePath = "src/main/resources/config.properties";
 
     public HashMap<String, String> getPropValues() throws IOException {
 
         try {
             prop = new Properties();
-            inputStream = new FileInputStream("src/main/resources/config.properties");
+            inputStream = new FileInputStream(configFileRelativePath);
 
             if (inputStream != null) {
                 prop.load(inputStream);
@@ -42,6 +43,12 @@ public class PropertyReader {
             putProperty("dialogsUrl");
             putProperty("loadUrl");
             putProperty("downloadPath");
+            putProperty("implicitlyWait");
+            putProperty("dialogTestWebDriverWait");
+            putProperty("picturesPath");
+            putProperty("downloadTestWebDriverWait");
+            putProperty("pictureDownloadWait");
+            putProperty("alertsTestWebDriverWait");
 
         } catch (Exception e) {
             System.out.println("Exception: " + e);

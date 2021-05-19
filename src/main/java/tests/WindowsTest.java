@@ -2,15 +2,21 @@ package tests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pages.WindowPage;
 import testutils.TabsUtil;
 
 import java.io.IOException;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class WindowsTest extends BasicTest {
     private String parentPage;
+    private boolean newTabWasOpened = false;
+    private boolean newWindowsWasOpened = false;
 
     @BeforeEach
     public void pagePreparation() throws IOException {
+        windowPage = new WindowPage(driver);
         windowPage.open();
         parentPage = driver.getWindowHandle();
     }
@@ -18,14 +24,16 @@ public class WindowsTest extends BasicTest {
     @Test
     public void newTabTest() {
         windowPage.pressNewTabBtn();
-        TabsUtil.getNewPageData(driver, windowPage, parentPage);
+        newTabWasOpened = TabsUtil.checkNewWindowCanBeOpen(driver, windowPage, parentPage);
+        assertTrue(newTabWasOpened, "New tab wasn't opened");
     }
 
 
     @Test
     public void newWindowTest() {
         windowPage.pressWindowBtn();
-        TabsUtil.getNewPageData(driver, windowPage, parentPage);
+        newWindowsWasOpened = TabsUtil.checkNewWindowCanBeOpen(driver, windowPage, parentPage);
+        assertTrue(newWindowsWasOpened, "New tab wasn't opened");
     }
 
     @Test

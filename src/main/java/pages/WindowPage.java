@@ -15,7 +15,6 @@ public class WindowPage extends AbstractPage {
     private By newWindowBtn = By.id("windowButton");
     private By newWindowMessageBtn = By.id("messageWindowButton");
     private By sampleHeading = By.id("sampleHeading");
-    private By bodyText = By.xpath(".//html/body/text()");
 
     public void pressNewTabBtn() {
         driver.findElement(newTabBtn).click();
@@ -30,7 +29,7 @@ public class WindowPage extends AbstractPage {
     }
 
     public String getSampleHeading() {
-       return driver.findElement(sampleHeading).getText();
+        return driver.findElement(sampleHeading).getText();
     }
 
     @Override
