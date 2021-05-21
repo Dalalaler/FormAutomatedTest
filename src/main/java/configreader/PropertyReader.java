@@ -49,6 +49,16 @@ public class PropertyReader {
             putProperty("downloadTestWebDriverWait");
             putProperty("pictureDownloadWait");
             putProperty("alertsTestWebDriverWait");
+            putProperty("accordianUrl");
+            putProperty("autoCompleteUrl");
+            putProperty("dataPickerUrl");
+            putProperty("progressBarUrl");
+            putProperty("widgetsMenuUrl");
+            putProperty("widgetsSelectMenuUrl");
+            putProperty("accordianPageTextWait");
+            putProperty("accordianPageTextPoolWait");
+            putProperty("progressBarPercentWait");
+            putProperty("progressBarPercentPoolWait");
 
         } catch (Exception e) {
             System.out.println("Exception: " + e);

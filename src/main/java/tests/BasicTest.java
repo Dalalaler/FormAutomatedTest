@@ -17,6 +17,12 @@ public abstract class BasicTest {
     protected static FramesPages framesPages;
     protected static WindowPage windowPage;
     protected static UploadDownloadPage uploadDownloadPage;
+    protected static WidgetsAccordianPage widgetsAccordianPage;
+    protected static WidgetsAutoCompletePage widgetsAutoCompletePage;
+    protected static WidgetsDatePickerPage widgetsDatePickerPage;
+    protected static WidgetsMenuPage widgetsMenuPage;
+    protected static WidgetsProgressBarPage widgetsProgressBarPage;
+    protected static WidgetsSelectMenuPage widgetsSelectMenuPage;
 
     @BeforeAll
     static void testSetup() throws IOException {
