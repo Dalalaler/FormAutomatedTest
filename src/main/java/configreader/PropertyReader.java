@@ -59,6 +59,8 @@ public class PropertyReader {
             putProperty("accordianPageTextPoolWait");
             putProperty("progressBarPercentWait");
             putProperty("progressBarPercentPoolWait");
+            putProperty("sortableUrl");
+            putProperty("droppableUrl");
 
         } catch (Exception e) {
             System.out.println("Exception: " + e);

@@ -23,6 +23,8 @@ public abstract class BasicTest {
     protected static WidgetsMenuPage widgetsMenuPage;
     protected static WidgetsProgressBarPage widgetsProgressBarPage;
     protected static WidgetsSelectMenuPage widgetsSelectMenuPage;
+    protected static SortablePage sortablePage;
+    protected static DroppablePage droppablePage;
 
     @BeforeAll
     static void testSetup() throws IOException {
