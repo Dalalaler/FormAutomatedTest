@@ -11,7 +11,6 @@ abstract public class AbstractPage {
         this.driver = driver;
     }
 
-    public void startTest() throws IOException {
-
+    public void open() throws IOException {
     }
 }
